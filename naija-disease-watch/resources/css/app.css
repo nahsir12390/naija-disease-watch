@@ -1,0 +1,70 @@
+@import 'tailwindcss';
+@import '../../vendor/livewire/flux/dist/flux.css';
+
+@source '../views';
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../vendor/livewire/flux-pro/stubs/**/*.blade.php';
+@source '../../vendor/livewire/flux/stubs/**/*.blade.php';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+    --font-sans: ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+
+    --color-zinc-50: #fafafa;
+    --color-zinc-100: #f5f5f5;
+    --color-zinc-200: #e5e5e5;
+    --color-zinc-300: #d4d4d4;
+    --color-zinc-400: #a3a3a3;
+    --color-zinc-500: #737373;
+    --color-zinc-600: #525252;
+    --color-zinc-700: #404040;
+    --color-zinc-800: #262626;
+    --color-zinc-900: #171717;
+    --color-zinc-950: #0a0a0a;
+
+    --color-accent: var(--color-neutral-800);
+    --color-accent-content: var(--color-neutral-800);
+    --color-accent-foreground: var(--color-white);
+}
+
+@layer theme {
+    .dark {
+        --color-accent: var(--color-white);
+        --color-accent-content: var(--color-white);
+        --color-accent-foreground: var(--color-neutral-800);
+    }
+}
+
+@layer base {
+
+    *,
+    ::after,
+    ::before,
+    ::backdrop,
+    ::file-selector-button {
+        border-color: var(--color-gray-200, currentColor);
+    }
+}
+
+[data-flux-field]:not(ui-radio, ui-checkbox) {
+    @apply grid gap-2;
+}
+
+[data-flux-label] {
+    @apply  !mb-0 !leading-tight;
+}
+
+input:focus[data-flux-control],
+textarea:focus[data-flux-control],
+select:focus[data-flux-control] {
+    @apply outline-hidden ring-2 ring-accent ring-offset-2 ring-offset-accent-foreground;
+}
+
+/* \[:where(&)\]:size-4 {
+    @apply size-4;
+} */
+
+/* Naija Disease Watch public workspace */
+.watch-app{margin:0;background:#f5f7f5;color:#213b30;font-family:ui-sans-serif,system-ui,sans-serif;font-size:14px;color-scheme:light}.watch-app *{box-sizing:border-box}.watch-app a{text-decoration:none}.watch-sidebar{position:fixed;inset:0 auto 0 0;width:238px;padding:33px 23px;background:#fff;border-right:1px solid #e5ebe6;display:flex;flex-direction:column;z-index:20}.watch-brand{display:flex;gap:11px;align-items:center;font-size:22px;font-weight:750;line-height:1.1;letter-spacing:-.7px}.brand-symbol{background:#176b50;color:#fff;width:41px;height:43px;border-radius:13px;display:grid;place-items:center;font-size:35px}.brand-light{display:block;font-size:12px;font-weight:500;letter-spacing:.1px;margin-top:5px;color:#718178}.workspace-label{font-size:9px;letter-spacing:1.35px;color:#96a198;margin:46px 9px 16px}.watch-sidebar nav{display:grid;gap:7px}.watch-sidebar nav a{padding:13px 12px;border-radius:8px;color:#77857b;font-size:13px;display:flex;align-items:center;gap:13px}.watch-sidebar nav a:hover{background:#f4f8f5}.watch-sidebar nav a>span:first-child{font-size:20px;width:22px}.watch-sidebar nav .nav-active{background:#e9f2ec;color:#246848;font-weight:650}.nav-arrow{margin-left:auto}.sidebar-note{margin-top:auto;background:#f2f5ed;border:1px solid #e4e9df;border-radius:12px;padding:20px 16px}.note-icon{color:#4d7258;font-size:27px}.sidebar-note h3{font-size:17px;line-height:1.5;font-weight:600;margin:10px 0}.sidebar-note p{font-size:11px;line-height:1.9;color:#7e8c7e}.sidebar-note a{display:flex;justify-content:space-between;margin-top:20px;font-size:11px;font-weight:600}.sidebar-bottom{margin-top:30px;font-size:11px;color:#6b7c70}.nigeria-flag{color:#218854;margin-right:6px}.sidebar-bottom small{display:block;font-size:9px;margin-top:7px;color:#a2aaa4}.watch-workspace{margin-left:238px}.watch-topbar{height:76px;padding:0 40px;border-bottom:1px solid #e4eae5;background:#fff;display:flex;justify-content:space-between;align-items:center;font-size:11px;color:#8b978e}.watch-topbar strong{color:#52695b;font-weight:500}.breadcrumb-divider{margin:0 14px;color:#c6cec8}.watch-topbar>div{display:flex;align-items:center;gap:23px}.demo-pill{font-size:10px;color:#70826d;display:flex;align-items:center;gap:7px}.demo-pill i,.status-dot{width:6px;height:6px;border-radius:50%;background:#7c9b62;display:inline-block}.account-link{padding:9px 12px;border:1px solid #e3e9e4;border-radius:7px;color:#3a5c47}.watch-main{max-width:1530px;padding:37px 40px 0;margin:auto}.page-intro{display:flex;justify-content:space-between;align-items:center;gap:20px}.eyebrow{font-size:9px;letter-spacing:1.7px;font-weight:650;color:#879888}.page-intro h1{font-size:clamp(24px,2.4vw,37px);letter-spacing:-1.4px;font-weight:600;margin:9px 0 10px;line-height:1.2}.page-intro h1>span{color:#8bad66}.page-intro p{font-size:12px;color:#8a968d}.export-button{background:#206c50;color:#fff;padding:12px 17px;border-radius:7px;display:flex;gap:10px;align-items:center;font-size:11px;white-space:nowrap}.demo-banner{margin:25px 0 24px;background:#fbf8ef;border:1px solid #ede5cf;border-radius:8px;padding:12px 15px;display:flex;align-items:center;gap:12px;color:#8f7951;font-size:10px}.demo-banner>span{font-size:17px}.demo-banner p{flex:1;line-height:1.7}.demo-banner strong{font-weight:650}.demo-banner a{white-space:nowrap;font-size:10px}.watch-filters{display:flex;gap:13px;align-items:end;margin-bottom:25px}.watch-filters label{display:grid;gap:7px;font-size:10px;color:#6f7f73;flex:1}.watch-filters select{font-family:inherit;background-color:white;color:#45604d;border:1px solid #dfe7df;border-radius:7px;padding:10px 32px 10px 12px;font-size:11px;height:39px;width:100%}.watch-filters button{height:39px;padding:0 17px;background:#e7eee7;color:#3d644a;border:1px solid #d8e2d7;border-radius:7px;font-size:11px;cursor:pointer}.reset-link{font-size:11px;color:#8d998f;padding:12px 8px}.metric-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:17px;margin-bottom:23px}.metric-card{background:#fff;border:1px solid #e2e9e2;border-radius:10px;padding:18px 19px;box-shadow:0 3px 4px #1e4a2c02}.metric-label{display:flex;justify-content:space-between;align-items:center;color:#7b8a7e;font-size:10px}.metric-icon{width:28px;height:28px;display:grid;place-items:center;border-radius:8px;font-size:19px}.green{background:#edf5ed;color:#40865b}.red{background:#fbefed;color:#c37c73}.blue{background:#edf3fa;color:#7593b7}.gold{background:#fbf5e9;color:#c3a364}.metric-value{font-size:29px;font-weight:600;letter-spacing:-1px;margin:10px 0}.metric-unit{margin-left:8px;font-size:9px;color:#a0aba1;letter-spacing:0;font-weight:400}.metric-description{font-size:9px;color:#97a198}.chart-grid{display:grid;grid-template-columns:1.85fr 1fr;gap:21px;margin-bottom:22px}.watch-panel{background:white;border:1px solid #e2e9e2;border-radius:11px;padding:24px;scroll-margin-top:20px}.panel-heading{display:flex;justify-content:space-between;align-items:center;gap:12px}.panel-heading h2{font-size:16px;font-weight:600;letter-spacing:-.4px;margin:6px 0}.panel-heading p{font-size:10px;color:#9ba59c;margin-top:7px}.legend{display:flex;gap:6px;align-items:center;color:#76877b;font-size:9px;white-space:nowrap}.legend i,.disease-legend i{width:7px;height:7px;border-radius:50%;background:#258464;display:inline-block}.trend-chart{padding-top:26px}.trend-chart svg{width:100%;height:auto;display:block}.chart-details{font-size:10px;color:#8b9c8e;margin-top:5px}.chart-details summary{cursor:pointer}.monthly-totals{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:14px}.monthly-totals span{display:flex;gap:8px}.donut-chart{width:180px;margin:14px auto 8px}.donut-chart svg{width:100%}.donut-total{fill:#254634;font-size:25px;font-weight:600;letter-spacing:-1px}.donut-label{fill:#98a298;font-size:10px}.disease-legend{display:grid;gap:11px;font-size:10px}.disease-legend>div{display:flex;justify-content:space-between}.disease-legend span{display:flex;gap:9px;align-items:center;color:#7d8e80}.disease-legend strong{font-weight:600}.lower-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:21px;margin-bottom:23px}.subtle-tag{background:#f3f6f1;border:1px solid #e9eee4;color:#829279;border-radius:5px;padding:5px 8px;font-size:9px}.state-bars{display:grid;gap:19px;margin-top:28px}.state-row{display:grid;grid-template-columns:75px 1fr 45px;gap:14px;align-items:center;font-size:10px;color:#738679}.state-row strong{text-align:right;font-weight:550;font-size:10px}.bar-track{background:#f2f5ef;border-radius:3px;height:9px}.bar-track>div{background:#7ca68b;height:100%;border-radius:3px}.state-row:first-child .bar-track>div{background:#2e7756}.insight-panel{border-radius:11px;background:#eaf0e2;padding:27px 29px;scroll-margin-top:20px}.insight-top{display:flex;align-items:center;gap:9px;font-size:9px;letter-spacing:1.5px;color:#758b63}.insight-top>span{font-size:24px}.insight-panel h2{font-size:26px;font-weight:500;letter-spacing:-.8px;line-height:1.3;margin:15px 0;color:#3b5c38}.insight-panel p{font-size:11px;color:#809076;line-height:1.85;margin-top:13px;max-width:370px}.insight-footer{border-top:1px solid #d9e2cf;padding-top:16px;margin-top:22px;font-size:9px;color:#89977d;display:flex;align-items:center;gap:8px}.table-scroll{overflow:auto;margin:22px -24px -10px}.records-panel table{width:100%;border-collapse:collapse;white-space:nowrap;font-size:11px;text-align:left}.records-panel th{background:#f8faf6;font-size:9px;font-weight:500;color:#92a08f;padding:11px 24px;border-block:1px solid #edf0e9}.records-panel td{padding:13px 24px;border-bottom:1px solid #f0f3ed;color:#899587}.records-panel td strong{font-weight:500;color:#526c54}.records-panel tr:last-child td{border-bottom:0}.disease-tag{background:#eef4e9;border:1px solid #e3ecdc;color:#7c9768;padding:4px 8px;border-radius:4px;font-size:9px}.text-link{font-size:10px;color:#608758;white-space:nowrap}.watch-footer{display:flex;justify-content:space-between;font-size:9px;color:#a5aea1;padding:27px 0}.footer-mark{font-size:18px;color:#729866;margin-left:8px}.watch-app a:focus-visible,.watch-app button:focus-visible,.watch-app summary:focus-visible,.watch-app select:focus-visible{outline:3px solid #b2cb86;outline-offset:4px}.watch-app a:hover{filter:brightness(.9)}
+@media(min-width:1600px){.watch-main{padding-top:46px}.metric-card{padding:23px}.trend-chart{padding-top:35px}.donut-chart{width:200px}}@media(max-width:1150px){.watch-sidebar{width:205px;padding-inline:18px}.watch-workspace{margin-left:205px}.watch-main{padding-inline:25px}.watch-topbar{padding-inline:25px}.metric-grid{gap:10px}.metric-card{padding:13px}.metric-value{font-size:25px}.metric-unit{display:none}.chart-grid{grid-template-columns:1.5fr 1fr}.panel-heading{align-items:start}.legend{display:none}.lower-grid{grid-template-columns:1.2fr 1fr}}@media(max-width:850px){.watch-sidebar{position:static;width:100%;padding:16px 22px;border-bottom:1px solid #e5ebe6}.watch-brand{font-size:19px}.brand-symbol{height:36px;width:36px}.workspace-label,.sidebar-note,.sidebar-bottom{display:none}.watch-sidebar nav{display:flex;overflow:auto;margin-top:18px;gap:5px}.watch-sidebar nav a{white-space:nowrap;padding:8px 10px;font-size:11px}.watch-sidebar nav a>span:first-child{font-size:16px;width:auto}.nav-arrow{display:none}.watch-workspace{margin-left:0}.watch-topbar{height:55px}.watch-main{padding-top:26px}.chart-grid{grid-template-columns:1.5fr 1fr}.metric-grid{grid-template-columns:repeat(2,1fr)}.lower-grid{grid-template-columns:1fr 1fr}.watch-topbar .demo-pill{display:none}.watch-filters{flex-wrap:wrap}.watch-filters label{min-width:140px}.panel-heading h2{font-size:14px}.watch-panel{padding:18px}.table-scroll{margin-inline:-18px}.insight-panel{padding:22px}.insight-panel h2{font-size:23px}}@media(max-width:600px){.watch-main{padding-inline:17px}.watch-topbar{padding-inline:17px;font-size:10px}.watch-topbar .breadcrumb-divider{margin-inline:7px}.watch-topbar>span{font-size:9px}.page-intro{align-items:start}.page-intro h1{font-size:27px;max-width:240px}.page-intro p{font-size:11px;line-height:1.7}.eyebrow{font-size:8px}.export-button{padding:10px;font-size:10px;gap:4px}.demo-banner{align-items:start}.demo-banner>a{display:none}.metric-grid{gap:10px}.metric-value{font-size:28px}.metric-label{font-size:9px}.metric-description{font-size:8px}.chart-grid,.lower-grid{grid-template-columns:1fr}.donut-chart{width:185px}.burden-panel .disease-legend{max-width:300px;margin:auto}.watch-filters label{min-width:120px}.watch-filters label:nth-child(3){flex-basis:100%}.watch-filters button{flex:1}.monthly-totals{grid-template-columns:repeat(3,1fr)}.watch-footer{gap:20px;line-height:1.6}.records-panel .panel-heading{flex-direction:column;gap:10px}}
