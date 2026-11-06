@@ -21,7 +21,7 @@
                     this.code = '';
                     this.recovery_code = '';
 
-                    $nextTick(() => {
+                    this.$nextTick(() => {
                         this.showRecoveryInput
                             ? this.$refs.recovery_code?.focus()
                             : this.focusOtp();
@@ -64,6 +64,7 @@
                         <div class="my-5">
                             <flux:input
                                 type="text"
+                                :label="__('Recovery code')"
                                 name="recovery_code"
                                 x-ref="recovery_code"
                                 x-bind:required="showRecoveryInput"
@@ -90,10 +91,10 @@
 
                 <div class="mt-5 space-x-0.5 text-sm leading-5 text-center">
                     <span class="opacity-50">{{ __('or you can') }}</span>
-                    <div class="inline font-medium underline cursor-pointer opacity-80">
-                        <span x-show="!showRecoveryInput" @click="toggleInput()">{{ __('login using a recovery code') }}</span>
-                        <span x-show="showRecoveryInput" @click="toggleInput()">{{ __('login using an authentication code') }}</span>
-                    </div>
+                    <button type="button" class="auth-recovery-toggle" @click="toggleInput()">
+                        <span x-show="!showRecoveryInput">{{ __('Use a recovery code') }}</span>
+                        <span x-show="showRecoveryInput">{{ __('Use an authentication code') }}</span>
+                    </button>
                 </div>
             </form>
         </div>

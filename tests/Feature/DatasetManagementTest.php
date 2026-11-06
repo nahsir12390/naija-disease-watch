@@ -45,7 +45,7 @@ class DatasetManagementTest extends TestCase
 
     public function test_invalid_later_row_prevents_partial_import(): void
     {
-        $this->actingAs($this->administrator())->post(route('datasets.store'), $this->upload("Lagos,Cholera,1,2023,100,5,80\nAbia,Cholera,2,2023,10,9,8"))->assertSessionHasErrors('file');
+        $this->actingAs($this->administrator())->post(route('datasets.store'), $this->upload("Lagos,Cholera,1,2023,100,5,80\nAbia,Cholera,2,2023,10,-1,8"))->assertSessionHasErrors('file');
         $this->assertDatabaseCount('disease_reports', 0);
     }
 

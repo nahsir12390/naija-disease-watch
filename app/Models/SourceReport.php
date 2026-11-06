@@ -15,6 +15,6 @@ class SourceReport extends Model
 
     protected function casts(): array
     {
-        return ['year' => 'integer', 'week' => 'integer', 'suggestions' => 'array', 'reviewed_at' => 'datetime'];
+        return ['year' => 'integer', 'week' => 'integer', 'week_end' => 'integer', 'suggestions' => 'array', 'reviewed_at' => 'datetime'];
     }
 }

@@ -23,6 +23,8 @@
             <flux:sidebar.nav>
                 <flux:sidebar.item icon="home" :href="route('home')">Public dashboard</flux:sidebar.item>
                 @can('manage-datasets')
+                    <flux:sidebar.item icon="book-open-text" :href="route('sources.index')" :current="request()->routeIs('sources.*')">NCDC reports</flux:sidebar.item>
+                    <flux:sidebar.item icon="home" :href="route('administration.index')" :current="request()->routeIs('administration.*')">Users &amp; settings</flux:sidebar.item>
                     <flux:sidebar.item icon="folder-git-2" :href="route('datasets.index')" :current="request()->routeIs('datasets.*')">Manage datasets</flux:sidebar.item>
                 @endcan
             </flux:sidebar.nav>

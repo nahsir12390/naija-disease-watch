@@ -5,20 +5,13 @@ namespace Database\Factories;
 use App\Models\SourceReport;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-/**
- * @extends Factory<SourceReport>
- */
+/** @extends Factory<SourceReport> */
 class SourceReportFactory extends Factory
 {
-    /**
-     * Define the model's default state.
-     *
-     * @return array<string, mixed>
-     */
     public function definition(): array
     {
-        return [
-            //
-        ];
+        $url = 'https://ncdc.gov.ng/themes/common/files/sitreps/'.fake()->unique()->uuid().'.pdf';
+
+        return ['disease' => 'Lassa fever', 'title' => 'Lassa fever situation report, week 40', 'url' => $url, 'url_hash' => hash('sha256', $url), 'year' => 2026, 'week' => 40, 'status' => 'pending'];
     }
 }

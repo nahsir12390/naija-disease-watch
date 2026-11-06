@@ -2,19 +2,26 @@
 
 namespace App\Console\Commands;
 
-use Illuminate\Console\Attributes\Description;
-use Illuminate\Console\Attributes\Signature;
+use App\Jobs\SyncNcdcReportsJob;
+use App\Models\ProjectSetting;
 use Illuminate\Console\Command;
 
-#[Signature('app:sync-ncdc-reports')]
-#[Description('Command description')]
 class SyncNcdcReports extends Command
 {
-    /**
-     * Execute the console command.
-     */
-    public function handle()
+    protected $signature = 'app:sync-ncdc-reports';
+
+    protected $description = 'Discover new official NCDC reports for administrator review';
+
+    public function handle(): int
     {
-        //
+        if (! ProjectSetting::current()->sync_enabled) {
+            $this->info('Automatic NCDC checks are disabled in project settings.');
+
+            return self::SUCCESS;
+        }
+        SyncNcdcReportsJob::dispatch();
+        $this->info('NCDC discovery and draft preparation queued.');
+
+        return self::SUCCESS;
     }
 }
